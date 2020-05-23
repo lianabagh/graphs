@@ -6,7 +6,6 @@
 #include <QKeyEvent>
 #include <QRandomGenerator>
 
-//! [0]
 void GraphWidget::print_MST(int parent[],std::vector<int> vecish)
 
 {
@@ -14,12 +13,6 @@ void GraphWidget::print_MST(int parent[],std::vector<int> vecish)
 	{
 		scene->addItem(new Edge(vec[i],vec[parent[i]],0-vecish[i]));
 	}
-//for (int u=0;u<node_count;u++)
-//      {
-//        for (auto it = adj[u].begin(); it!=adj[u].end(); it++)
-	
-  //            scene->addItem(new Edge(vec[u],vec[it->first],it->second));
-    //  }
 }
 
 
@@ -49,14 +42,14 @@ GraphWidget::GraphWidget( int row_count, int column_count, QWidget* parent)
 		vec[i]->setPos((col*50)-50,(row*50)-50);
 	}
 }
-//! [1]
 #if QT_CONFIG(wheelevent)
-//! [5]
+
+
 void GraphWidget::wheelEvent(QWheelEvent *event)
 {
     scaleView(pow(2., -event->angleDelta().y() / 240.0));
 }
-//! [5]
+
 #endif
 void GraphWidget::drawBackground(QPainter *painter, const QRectF &rect)
 {
@@ -84,9 +77,7 @@ void GraphWidget::drawBackground(QPainter *painter, const QRectF &rect)
     font.setPointSize(14);
     painter->setFont(font);
 }
-//! [6]
 
-//! [7]
 void GraphWidget::scaleView(qreal scaleFactor)
 {
     qreal factor = transform().scale(scaleFactor, scaleFactor).mapRect(QRectF(0, 0, 1, 1)).width();
@@ -95,7 +86,6 @@ void GraphWidget::scaleView(qreal scaleFactor)
 
     scale(scaleFactor, scaleFactor);
 }
-//! [7]
 
 
 void GraphWidget::zoomIn()

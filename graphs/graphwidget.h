@@ -5,7 +5,6 @@
 #include<QVector>
 class Node;
 
-//! [0]
 class GraphWidget : public QGraphicsView
 {
     Q_OBJECT

@@ -5,19 +5,15 @@
 
 class Node;
 
-//! [0]
 class Edge : public QGraphicsItem
+
 {
 public:
     Edge(Node *sourceNode, Node *destNode,int weight);
-
     Node *sourceNode() const;
     Node *destNode() const;
-
     void adjust();
 
-//    enum { Type = UserType + 2 };
- //   int type() const override { return Type; }
 
 protected:
     QRectF boundingRect() const override;
@@ -30,6 +26,5 @@ private:
     QPointF destPoint;
     qreal arrowSize = 10;
 };
-//! [0]
 
 #endif // EDGE_H

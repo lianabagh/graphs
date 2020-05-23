@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = graph_final1.0.0
-DISTDIR = /Users/lianchik/Desktop/untitled\ folder/signal_slots/graph_final/.tmp/graph_final1.0.0
+DISTDIR = /Users/lianchik/Desktop/graphs/graphs/.tmp/graph_final1.0.0
 LINK          = /Library/Developer/CommandLineTools/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.13 -Wl,-rpath,@executable_path/../Frameworks
 LIBS          = $(SUBLIBS) -F/usr/local/Cellar/qt/5.14.1/lib -framework QtWidgets -framework QtGui -framework AppKit -framework Metal -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL   
@@ -245,7 +245,7 @@ DIST          = /usr/local/Cellar/qt/5.14.1/mkspecs/features/spec_pre.prf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/macx-clang/qmake.conf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/spec_post.prf \
-		../.qmake.stash \
+		.qmake.stash \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/mac/sdk.prf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/toolchain.prf \
@@ -289,12 +289,12 @@ TARGET        = graph_final.app/Contents/MacOS/graph_final
 
 ####### Custom Variables
 EXPORT_QMAKE_MAC_SDK = macosx
-EXPORT_QMAKE_MAC_SDK_VERSION = 10.14.1
+EXPORT_QMAKE_MAC_SDK_VERSION = 10.14.6
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Library/Developer/CommandLineTools
 EXPORT_VALID_ARCHS = x86_64
 EXPORT_ACTIVE_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(ARCHS))
 EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_ARCHS), $(EXPORT_VALID_ARCHS)), -arch $(arch))
-EXPORT__PRO_FILE_ = /Users/lianchik/Desktop/untitled folder/signal_slots/graph_final/graph_final.pro
+EXPORT__PRO_FILE_ = /Users/lianchik/Desktop/graphs/graphs/graph_final.pro
 
 
 include /usr/local/Cellar/qt/5.14.1/mkspecs/features/mac/sdk.mk
@@ -485,7 +485,7 @@ Makefile: graph_final.pro /usr/local/Cellar/qt/5.14.1/mkspecs/macx-clang/qmake.c
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/qt_config.prf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/macx-clang/qmake.conf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/spec_post.prf \
-		../.qmake.stash \
+		.qmake.stash \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/exclusive_builds.prf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/mac/sdk.prf \
 		/usr/local/Cellar/qt/5.14.1/mkspecs/features/toolchain.prf \
@@ -698,7 +698,7 @@ Makefile: graph_final.pro /usr/local/Cellar/qt/5.14.1/mkspecs/macx-clang/qmake.c
 /usr/local/Cellar/qt/5.14.1/mkspecs/features/qt_config.prf:
 /usr/local/Cellar/qt/5.14.1/mkspecs/macx-clang/qmake.conf:
 /usr/local/Cellar/qt/5.14.1/mkspecs/features/spec_post.prf:
-../.qmake.stash:
+.qmake.stash:
 /usr/local/Cellar/qt/5.14.1/mkspecs/features/exclusive_builds.prf:
 /usr/local/Cellar/qt/5.14.1/mkspecs/features/mac/sdk.prf:
 /usr/local/Cellar/qt/5.14.1/mkspecs/features/toolchain.prf:
@@ -771,6 +771,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r graph_final.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -807,7 +808,7 @@ moc_graphwidget.cpp: graphwidget.h \
 		/usr/local/Cellar/qt/5.14.1/lib/QtCore.framework/Headers/qvector.h \
 		moc_predefs.h \
 		/usr/local/Cellar/qt/5.14.1/bin/moc
-	/usr/local/Cellar/qt/5.14.1/bin/moc $(DEFINES) --include '/Users/lianchik/Desktop/untitled folder/signal_slots/graph_final/moc_predefs.h' -I/usr/local/Cellar/qt/5.14.1/mkspecs/macx-clang -I'/Users/lianchik/Desktop/untitled folder/signal_slots/graph_final' -I'/Users/lianchik/Desktop/untitled folder/signal_slots/graph_final' -I/usr/local/include -I/usr/local/Cellar/qt/5.14.1/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt/5.14.1/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/5.14.1/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/10.0.0/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include -F/usr/local/Cellar/qt/5.14.1/lib graphwidget.h -o moc_graphwidget.cpp
+	/usr/local/Cellar/qt/5.14.1/bin/moc $(DEFINES) --include /Users/lianchik/Desktop/graphs/graphs/moc_predefs.h -I/usr/local/Cellar/qt/5.14.1/mkspecs/macx-clang -I/Users/lianchik/Desktop/graphs/graphs -I/Users/lianchik/Desktop/graphs/graphs -I/usr/local/include -I/usr/local/Cellar/qt/5.14.1/lib/QtWidgets.framework/Headers -I/usr/local/Cellar/qt/5.14.1/lib/QtGui.framework/Headers -I/usr/local/Cellar/qt/5.14.1/lib/QtCore.framework/Headers -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1/include -I/Library/Developer/CommandLineTools/usr/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include -F/usr/local/Cellar/qt/5.14.1/lib graphwidget.h -o moc_graphwidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

@@ -7,7 +7,6 @@
 class Edge;
 class GraphWidget;
 
-//! [0]
 class Node : public QGraphicsItem
 {
 public:
@@ -28,6 +27,5 @@ private:
     QVector<Edge*> edgeList;
     GraphWidget *graph;
 };
-//! [0]
 
 #endif // NODE_H

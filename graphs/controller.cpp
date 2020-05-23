@@ -12,7 +12,6 @@ controller::controller(int rows,int columns)
     Graph g(rows,columns);
     int *par_copy =  g.primMST();
     vector<int> vecish = g.get_edges();
-    //list<pair<int,int>>* vecish = g.get_edges();
     widget->print_MST(par_copy,vecish);
     QMainWindow *mainWindow = new QMainWindow();
 
